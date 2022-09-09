@@ -1,6 +1,7 @@
 import 'package:curso_flutter_greengrocer/src/models/cart_item_model.dart';
 import 'package:curso_flutter_greengrocer/src/models/item_model.dart';
 
+import '../models/order_model.dart';
 import '../models/user_model.dart';
 
 ItemModel apple = ItemModel(
@@ -97,3 +98,20 @@ UserModel user = UserModel(
   name: 'Rhuan Burle',
   password: '',
 );
+
+List<OrderModel> orders = [
+  OrderModel(
+    copyAndPaste: 'quidnaykeod',
+    createdDateTime: DateTime.parse('2021-02-06'),
+    overdueDateTime: DateTime.parse('2021-02-07'),
+    id: '15',
+    status: 'pending_payment',
+    total: 11.0,
+    items: [
+      CartItemModel(
+        item: apple,
+        quantity: 2,
+      ),
+    ],
+  ),
+];
