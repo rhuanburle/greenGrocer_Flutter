@@ -3,7 +3,7 @@ import 'package:curso_flutter_greengrocer/src/pages/auth/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../base/base_screen.dart';
-import 'components/custom_text_field.dart';
+import '../common_widgets/custom_text_field.dart';
 
 class SingInScreen extends StatelessWidget {
   const SingInScreen({Key? key}) : super(key: key);
