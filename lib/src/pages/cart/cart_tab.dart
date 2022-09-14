@@ -20,6 +20,8 @@ class _CartTabState extends State<CartTab> {
   void removeItemFromCart(CartItemModel cartItem) {
     setState(() {
       appData.cartItems.remove(cartItem);
+
+      ultilsServices.showToast(message: '${cartItem.item.itemName} removido do carrinho');
     });
   }
 
@@ -100,6 +102,8 @@ class _CartTabState extends State<CartTab> {
                           );
                         },
                       );
+                    } else {
+                      ultilsServices.showToast(message: 'Pedido não confirmado');
                     }
                   },
                   child: const Text(

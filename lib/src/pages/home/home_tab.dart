@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:badges/badges.dart';
 import 'package:curso_flutter_greengrocer/src/config/custom_colors.dart';
 import 'package:curso_flutter_greengrocer/src/pages/home/components/item_tile.dart';
+import 'package:curso_flutter_greengrocer/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 import 'package:curso_flutter_greengrocer/src/config/app_data.dart' as appData;
+import 'package:fluttertoast/fluttertoast.dart';
 import 'components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
@@ -16,6 +16,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   String selectedCategory = 'Frutas';
+  final UltilsServices ultilsServices = UltilsServices();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _HomeTabState extends State<HomeTab> {
         centerTitle: true,
         title: Text.rich(
           TextSpan(
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 30,
             ),
             children: [
@@ -119,7 +120,7 @@ class _HomeTabState extends State<HomeTab> {
                   isSelected: appData.categories[index] == selectedCategory,
                 );
               },
-              separatorBuilder: (_, index) => SizedBox(width: 10),
+              separatorBuilder: (_, index) => const SizedBox(width: 10),
               itemCount: appData.categories.length,
             ),
           ),
