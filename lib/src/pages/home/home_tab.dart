@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:curso_flutter_greengrocer/src/config/custom_colors.dart';
+import 'package:curso_flutter_greengrocer/src/pages/common_widgets/custom_shimmer.dart';
 import 'package:curso_flutter_greengrocer/src/pages/home/components/item_tile.dart';
 import 'package:curso_flutter_greengrocer/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,17 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   String selectedCategory = 'Frutas';
   final UltilsServices ultilsServices = UltilsServices();
+  bool isLoading = true;
+  
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,26 +122,43 @@ class _HomeTabState extends State<HomeTab> {
 
           //Grid
           Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-              physics: const BouncingScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 9 / 11.5,
-              ),
-              itemCount: appData.items.length,
-              itemBuilder: (_, index) {
-                return ItemTile(
-                  item: appData.items[index],
-                );
-              },
-            ),
+            child: !isLoading
+                ? GridView.builder(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    physics: const BouncingScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 9 / 11.5,
+                    ),
+                    itemCount: appData.items.length,
+                    itemBuilder: (_, index) {
+                      return ItemTile(
+                        item: appData.items[index],
+                      );
+                    },
+                  )
+                : GridView.count(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    physics: const BouncingScrollPhysics(),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 9 / 11.5,
+                    children: List.generate(
+                      10,
+                      (index) => CustomShimmer(
+                        height: double.infinity,
+                        width: double.infinity,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
           ),
         ],
       ),
     );
   }
 }
-
