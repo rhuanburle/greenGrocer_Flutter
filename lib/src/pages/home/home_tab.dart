@@ -5,6 +5,7 @@ import 'package:curso_flutter_greengrocer/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 import 'package:curso_flutter_greengrocer/src/config/app_data.dart' as appData;
 import 'package:fluttertoast/fluttertoast.dart';
+import '../common_widgets/app_name_widget.dart';
 import 'components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
@@ -26,25 +27,7 @@ class _HomeTabState extends State<HomeTab> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: Text.rich(
-          TextSpan(
-            style: const TextStyle(
-              fontSize: 30,
-            ),
-            children: [
-              TextSpan(
-                text: 'Green',
-                style: TextStyle(
-                  color: CustomColors.customSwatchColor,
-                ),
-              ),
-              TextSpan(
-                text: 'grocer',
-                style: TextStyle(color: CustomColors.customContrastColor),
-              ),
-            ],
-          ),
-        ),
+        title: AppNameWidget(),
         actions: [
           Padding(
             padding: const EdgeInsets.only(
@@ -149,3 +132,4 @@ class _HomeTabState extends State<HomeTab> {
     );
   }
 }
+

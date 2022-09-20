@@ -1,4 +1,5 @@
 import 'package:curso_flutter_greengrocer/src/pages/auth/sign_in_creen.dart';
+import 'package:curso_flutter_greengrocer/src/pages/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Curso Greengrocer GetX',
+      title: 'Greengrocer',
       theme: ThemeData(
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: Colors.white.withAlpha(190)),
       debugShowCheckedModeBanner: false,
-      home: const SingInScreen(),
+      home: const SplashScreen(), // const SingInScreen(),
     );
   }
 }

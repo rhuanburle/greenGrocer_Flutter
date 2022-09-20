@@ -1,5 +1,6 @@
 import 'package:curso_flutter_greengrocer/src/config/custom_colors.dart';
 import 'package:curso_flutter_greengrocer/src/pages/auth/sign_up_screen.dart';
+import 'package:curso_flutter_greengrocer/src/pages/common_widgets/app_name_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../base/base_screen.dart';
@@ -25,26 +26,10 @@ class SingInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Titulo App
-                    Text.rich(
-                      TextSpan(
-                        style: const TextStyle(
-                          fontSize: 40,
-                        ),
-                        children: [
-                          const TextSpan(
-                            text: 'Green',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                              text: 'groce',
-                              style: TextStyle(
-                                  color: CustomColors.customContrastColor)),
-                        ],
-                      ),
+                    const AppNameWidget(
+                      greenTitleColor: Colors.white,
+                      textSize: 40,
                     ),
-
                     SizedBox(
                       height: 30,
                       child: DefaultTextStyle(
