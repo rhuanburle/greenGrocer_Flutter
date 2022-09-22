@@ -1,11 +1,11 @@
 import 'package:badges/badges.dart';
+import 'package:curso_flutter_greengrocer/src/config/app_data.dart' as appData;
 import 'package:curso_flutter_greengrocer/src/config/custom_colors.dart';
 import 'package:curso_flutter_greengrocer/src/pages/common_widgets/custom_shimmer.dart';
 import 'package:curso_flutter_greengrocer/src/pages/home/components/item_tile.dart';
 import 'package:curso_flutter_greengrocer/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
-import 'package:curso_flutter_greengrocer/src/config/app_data.dart' as appData;
-import 'package:fluttertoast/fluttertoast.dart';
+
 import '../common_widgets/app_name_widget.dart';
 import 'components/category_tile.dart';
 
@@ -20,11 +20,11 @@ class _HomeTabState extends State<HomeTab> {
   String selectedCategory = 'Frutas';
   final UltilsServices ultilsServices = UltilsServices();
   bool isLoading = true;
-  
+
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         isLoading = false;
       });
@@ -39,7 +39,7 @@ class _HomeTabState extends State<HomeTab> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: AppNameWidget(),
+        title: const AppNameWidget(),
         actions: [
           Padding(
             padding: const EdgeInsets.only(
