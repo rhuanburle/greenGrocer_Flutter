@@ -95,7 +95,7 @@ UserModel user = UserModel(
   phone: '99 9 9999-9999',
   cpf: '999.999.999-99',
   email: 'rhuan@gmail.com',
-  name: 'Rhuan Burle',
+  fullname: 'Rhuan Burle',
   password: '',
 );
 
@@ -118,7 +118,6 @@ List<OrderModel> orders = [
       ),
     ],
   ),
-
   OrderModel(
     copyAndPaste: 'quidnaykeod',
     createdDateTime: DateTime.parse('2021-02-06'),
